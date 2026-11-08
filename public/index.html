@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#080b12">
     <title>CGM Monitor</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -160,56 +160,68 @@
 
         @media(min-width:700px){.cw{height:340px}.rcw{height:260px}.sgv{font-size:96px}.trend{font-size:40px}.grid4{gap:10px}.qi{padding:14px 6px}.qi-v{font-size:18px}.pred-val{font-size:30px}.pred-row{gap:12px}.c{border-radius:20px}.am-c{width:400px}}
     
-/* === CGM-NS iOS-inspired visual refresh === */
+/* === CGM NS / iOS visual system v0.2 === */
 :root{
- --bg:#080b12;--c1:rgba(20,26,39,.88);--c2:#202a3b;--c3:#111827;
- --t1:#f5f7fb;--t2:#aab5c7;--t3:#77849a;--t4:#56647b;--t5:#303c50;
- --acc:#dce8ff;--acc2:#8baeff;--grn:#45d6a0;--ylw:#ffd166;--org:#ffad66;--red:#ff667d;
- --sep:rgba(169,190,224,.12);--grd:rgba(169,190,224,.07);
- --btn-bg:rgba(255,255,255,.055);--btn-on:#e6efff;--btn-on-txt:#111827;
- --pill-bg:rgba(255,255,255,.045);--pill-brd:rgba(169,190,224,.13);
+ --bg:#080b12;--c1:rgba(20,27,41,.88);--c2:#202b40;--c3:#111a2a;
+ --t1:#f5f7fc;--t2:#b2bfd2;--t3:#8796ad;--t4:#66758e;--t5:#3d4b62;
+ --acc:#dce8ff;--acc2:#91b4ff;--grn:#4bd6a0;--ylw:#ffd166;--org:#ffad66;--red:#ff667d;
+ --sep:rgba(174,195,229,.12);--grd:rgba(174,195,229,.075);
+ --btn-bg:rgba(255,255,255,.055);--btn-on:#e6efff;--btn-on-txt:#101827;
+ --pill-bg:rgba(255,255,255,.045);--pill-brd:rgba(174,195,229,.14);
 }
-html,body{background:radial-gradient(ellipse at 15% -10%,rgba(61,102,170,.20),transparent 42%),radial-gradient(ellipse at 100% 25%,rgba(74,68,145,.13),transparent 38%),var(--bg);color:var(--t1)}
-.nav-bar{padding:16px 20px 10px;background:transparent}
-.nav-bar:before{content:"CGM / NIGHTSCOUT";margin-right:auto;color:#8294b4;font-size:10px;font-weight:800;letter-spacing:2px}
-.nav-themes{gap:8px}
-.vth{width:18px;height:18px;box-shadow:0 0 0 3px rgba(255,255,255,.035)}
-.tab-bar{background:rgba(12,17,27,.88);border-top:1px solid rgba(180,199,230,.12);padding:13px 0 calc(18px + env(safe-area-inset-bottom));}
-.tab{font-size:10px;letter-spacing:.2px;color:#66748c}
+html,body{
+ background:radial-gradient(ellipse at 12% -12%,rgba(71,111,184,.22),transparent 43%),
+ radial-gradient(ellipse at 100% 35%,rgba(91,76,164,.14),transparent 42%),var(--bg);
+ color:var(--t1);
+}
+.nav-bar{position:relative;padding:17px 20px 12px;background:transparent;min-height:58px}
+.nav-bar:before{content:"CGM MONITOR";margin-right:auto;color:#e1eaff;font-size:12px;font-weight:850;letter-spacing:1.7px}
+.nav-themes{gap:9px}
+.vth{width:17px;height:17px;box-shadow:0 0 0 3px rgba(255,255,255,.04)}
+.tab-bar{background:rgba(10,15,25,.91);border-top:1px solid rgba(180,199,230,.12);padding:12px 0 calc(14px + env(safe-area-inset-bottom));}
+.tab{font-size:10px;letter-spacing:.35px;color:#75849d}
 .tab.on{color:#e7efff}
-.tab-i{background:#53627c}
-.tab.on .tab-i{background:#9bbcff;box-shadow:0 0 12px rgba(126,166,255,.4)}
-.s{padding:12px 16px 34px}
-.c{background:linear-gradient(145deg,rgba(29,39,57,.92),rgba(15,21,33,.94));border:1px solid rgba(177,199,235,.12);border-radius:21px;box-shadow:0 10px 28px rgba(0,0,0,.16);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.tab-i{background:#52617a}
+.tab.on .tab-i{background:#a7c2ff;box-shadow:0 0 13px rgba(126,166,255,.42)}
+.s{padding:13px 16px calc(34px + env(safe-area-inset-bottom))}
+.c{background:linear-gradient(148deg,rgba(30,41,61,.94),rgba(15,22,35,.96));border:1px solid rgba(177,199,235,.13);border-radius:21px;box-shadow:0 12px 30px rgba(0,0,0,.19);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .cp{padding:17px}
-.sec{color:#8190a9;font-size:9px;letter-spacing:1.8px;margin:20px 0 10px 5px}
-.hero{padding:25px 0 18px;background:linear-gradient(145deg,rgba(32,48,71,.94),rgba(15,23,37,.96));}
-.sgv{font-size:88px;letter-spacing:-6px}
-.trend{font-size:36px}
-.meta{color:#8290a7}
+.sec{color:#8b9ab3;font-size:9px;letter-spacing:1.65px;margin:20px 0 10px 5px}
+.hero{padding:26px 0 18px;background:radial-gradient(ellipse at 50% 0%,rgba(92,132,196,.18),transparent 70%),linear-gradient(150deg,rgba(34,51,76,.96),rgba(15,23,38,.98));}
+.sgv{font-size:clamp(70px,19vw,90px);letter-spacing:-5px}
+.trend{font-size:35px}
+.meta{color:#91a0b7}
 .pred-row{gap:9px}
 .pred{padding:15px 5px}
 .pred-val{font-size:27px}
-.pred-label{color:#91a0b8;letter-spacing:1.2px}
+.pred-label{color:#9aa9c0;letter-spacing:1.1px}
 .qi{padding:13px 4px}
-.qi-l{color:#8190a8}
-.qi-v{color:#e1e9f6}
+.qi-l{color:#8999b2}
+.qi-v{color:#e3ebf8}
 .cw{height:255px}
-.seg,.seg-ctrl,.gmi-tabs{background:rgba(5,10,18,.58);border-color:rgba(177,199,235,.12)}
-.sb,.seg-btn,.rb{color:#8795ad}
-.sb.on,.seg-btn.on{background:rgba(170,195,239,.15);color:#f0f5ff}
-.rb{background:rgba(255,255,255,.035);border-color:rgba(177,199,235,.12)}
+.seg,.seg-ctrl,.gmi-tabs{background:rgba(5,10,18,.58);border-color:rgba(177,199,235,.13)}
+.sb,.seg-btn,.rb{color:#91a0b7}
+.sb.on,.seg-btn.on{background:rgba(170,195,239,.16);color:#f2f6ff}
+.rb{background:rgba(255,255,255,.04);border-color:rgba(177,199,235,.13)}
 .rb.on{background:#dce8ff;color:#101827}
-.lr{border-bottom-color:rgba(177,199,235,.08)}
-.lr-l{color:#91a0b8}.lr-v{color:#e0e8f5}
-.tli,.rld{background:rgba(8,13,22,.94)}
-.fab{background:#dce8ff;color:#101827;box-shadow:0 8px 26px rgba(86,130,210,.3)}
-.am-c{background:#172235;border:1px solid rgba(177,199,235,.16)}
-.ainpt{background:#0d1625;border-color:rgba(177,199,235,.15);color:#f4f7fc}
-.gmi-card{background:rgba(255,255,255,.045);border-color:rgba(177,199,235,.13)}
-.gmi-tab.on{background:rgba(170,195,239,.16);color:#f2f6ff}
-.vt-card{background:linear-gradient(145deg,#1c2940,#111a2a);border-color:rgba(177,199,235,.13);border-radius:16px}
-@media(min-width:700px){.s{padding-left:24px;padding-right:24px}.hero{padding:32px 0 22px}.c{border-radius:24px}}
+.lr{border-bottom-color:rgba(177,199,235,.085)}
+.lr-l{color:#9aa9c0}.lr-v{color:#e5edf9}
+.tli,.rld{background:rgba(8,13,22,.95)}
+.fab{background:#dce8ff;color:#101827;box-shadow:0 9px 28px rgba(86,130,210,.34)}
+.am-c{background:#172235;border:1px solid rgba(177,199,235,.17)}
+.ainpt{background:#0d1625;border-color:rgba(177,199,235,.16);color:#f4f7fc}
+.gmi-card{background:rgba(255,255,255,.045);border-color:rgba(177,199,235,.14)}
+.gmi-tab.on{background:rgba(170,195,239,.17);color:#f2f6ff}
+.vt-card{background:linear-gradient(145deg,#1d2b43,#111a2b);border-color:rgba(177,199,235,.14);border-radius:17px}
+button,.tab,.rb,.sb,.seg-btn,.vt-card,.fab{touch-action:manipulation}
+@media(min-width:700px){
+ .s{padding-left:24px;padding-right:24px}
+ .hero{padding:32px 0 22px}
+ .c{border-radius:24px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
 
 </style>
 </head>
